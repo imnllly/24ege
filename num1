@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int otv = 1;
+    string str;
+    ifstream file;
+    file.open("k7-84.txt");
+    file >> str;
+    int len = str.size() - 1;
+    int maxi = 0;
+    for (int i = 0; i < len; i++) {
+        if ((str[i] == 'C') && (str[i + 1] == 'C')) {
+            otv++;
+            if (otv > maxi) maxi = otv;
+        }
+        else otv = 1;
+    }
+    cout << maxi;
+    return 0;
+
+}
