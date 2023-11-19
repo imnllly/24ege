@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int otv = 1;
+    char ma = ' ';
+    string str;
+    ifstream file;
+    file.open("k8-6.txt");
+    file >> str;
+    int len = str.size() - 1;
+    int maxi = 0;
+    for (int i = 0; i < len; i++) {
+        if (str[i] == str[i + 1]) {
+            otv++;
+            if (otv > maxi) {
+                maxi = otv;
+                ma = str[i];
+            }
+        }
+        else otv = 1;
+    }
+    cout << maxi;
+    cout << ma;
+    return 0;
+
+}
