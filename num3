@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int otv = 1;
+    string str;
+    ifstream file;
+    file.open("k7c-1.txt");
+    file >> str;
+    long long len = str.size() - 1;
+    // int maxi = 0;
+    for (int i = 0; i < len; i++) {
+        if ((str[i] == 'B' || str[i] == 'C' || str[i] == 'D') && (str[i + 1] == 'B' || str[i + 1] == 'E' || str[i + 1] == 'D' && str[i] != str[i + 1]) && (str[i + 2] == 'B' || str[i + 2] == 'E' || str[i + 2] == 'C' && str[i + 1] != str[i + 2])) {
+            otv++;
+            // if (otv > maxi) maxi = otv;
+        }
+        else otv = 1;
+    }
+    cout << otv;
+    return 0;
+
+}
